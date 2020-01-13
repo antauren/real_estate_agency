@@ -27,6 +27,8 @@ class Flat(models.Model):
 
     new_building = models.NullBooleanField("Новостройка")
 
+    likers = models.ManyToManyField(User, null=True, blank=True, related_name='flats', verbose_name="Кому понравилось")
+
     def __str__(self):
         return f"{self.town}, {self.address} ({self.price}р.)"
 
